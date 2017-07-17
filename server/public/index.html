@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Angular Weekend Challenge</title>
+  </head>
+  <body ng-app="myApp">
+  <div class="container">
+    <div ng-controller="displayController as display">
+      <h1>The Kruegers</h1>
+      <div ng-repeat="image in display.images track by $index">
+        <img ng-show="image.visible" ng-src="{{image.url}}" ng-click="display.toggle(image)" alt="">
+        <div class="description" ng-hide="image.visible" ng-click="display.toggle(image)"><p>{{image.description}}</p></div>
+        <div><p># OF LIKES</p><button ng-click="display.likes(image)"><p>{{image.likes}}</p></button></div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
